@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="./bower_components/bootstrap-css-only/css/bootstrap.min.css"/>
+</head>
+<body ng-app="myApp">
+<div class="container" ng-controller="LoanRequestController">
+	<div class="page-header">
+		<h1>Loan Application Form</h1>
+	</div>
+	<form class="form-horizontal" role="form" ng-submit="processLoanRequest(newLoanRequest)">
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="newLoanRequest.clientName" placeholder="Enter Your Name"
+				   required/>
+			<input type="text" class="form-control" ng-model="newLoanRequest.clientSurname"
+				   placeholder="Enter Your Surname" required/>
+			<input type="text" class="form-control" ng-model="newLoanRequest.clientPassportNum"
+				   placeholder="Enter Your Passport Number" required/>
+			<input type="number" class="form-control" ng-model="newLoanRequest.clientAge"
+				   placeholder="Enter Your Age" required/>
+			<input type="number" class="form-control" ng-model="newLoanRequest.amount" placeholder="Enter Loan Amount (1 - 10000)"
+				   min="1" max="10000" required/>
+			<input type="number" class="form-control" ng-model="newLoanRequest.term"
+				   placeholder="Enter Loan Term in Months (1 - 36)" min="1" max="36" required/>
+			<input type="number" class="form-control" ng-model="newLoanRequest.clientOfficialIncome"
+				   placeholder="Enter Your Official Income" min="0" required/>
+			<input type="number" class="form-control" ng-model="newLoanRequest.clientAdditionalIncome"
+				   placeholder="Enter Your Additional Income" min="0" required/>
+		</div>
+		<div class="input-group-btn">
+			<button class="btn btn-primary" type="submit" ng-disabled="myForm.$invalid" title="Submit">
+					<span class="glyphicon glyphicon-plus"></span>
+			</button>
+		</div>
+	</form>
+</div>
+<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="./bower_components/lodash/dist/lodash.min.js"></script>
+<script type="text/javascript" src="./app/app.js"></script>
+<script type="text/javascript" src="./app/controllers.js"></script>
+<script type="text/javascript" src="./app/services.js"></script>
+</body>
+</html>
