@@ -51,7 +51,8 @@ public class LoanRequestServiceImpl implements LoanRequestService {
 
 	@Override
 	public boolean processNewLoanRequest(LoanRequestDto loanRequestDto) {
-		return false;
+		LoanRequest loanRequest = new LoanRequest();
+		return riskProcessor.processRisk(loanRequest);
 	}
 
 }
